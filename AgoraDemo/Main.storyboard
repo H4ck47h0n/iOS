@@ -82,13 +82,37 @@
                                                 <action selector="closeChatController:" destination="Obw-Bp-byP" eventType="touchUpInside" id="0HT-fD-Swd"/>
                                             </connections>
                                         </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="uuids:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dhs-Lv-VJX">
+                                            <rect key="frame" x="256" y="43" width="88" height="24"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="24" id="6e3-r2-js6"/>
+                                                <constraint firstAttribute="width" constant="88" id="xgr-7z-64E"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="20"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sjx-kV-Vhw">
+                                            <rect key="frame" x="268" y="75" width="65" height="34"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="34" id="IPy-IW-bsV"/>
+                                                <constraint firstAttribute="width" constant="65" id="YC3-l3-b0K"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="xUw-OU-nnE" firstAttribute="centerY" secondItem="GAv-hT-D3z" secondAttribute="centerY" id="35n-ZO-hXh"/>
                                         <constraint firstItem="82U-Gy-1aZ" firstAttribute="top" secondItem="GAv-hT-D3z" secondAttribute="top" constant="32" id="B4n-oP-2st"/>
                                         <constraint firstItem="82U-Gy-1aZ" firstAttribute="leading" secondItem="GAv-hT-D3z" secondAttribute="leading" constant="26" id="Lsa-6L-CgC"/>
+                                        <constraint firstItem="Sjx-kV-Vhw" firstAttribute="centerX" secondItem="GAv-hT-D3z" secondAttribute="centerX" id="QYS-zO-O0t"/>
                                         <constraint firstItem="xUw-OU-nnE" firstAttribute="leading" secondItem="GAv-hT-D3z" secondAttribute="leading" constant="8" id="fcg-nZ-BPb"/>
+                                        <constraint firstItem="dhs-Lv-VJX" firstAttribute="top" secondItem="GAv-hT-D3z" secondAttribute="top" constant="43" id="hSO-Sc-8ue"/>
                                         <constraint firstAttribute="trailing" secondItem="xUw-OU-nnE" secondAttribute="trailing" constant="8" id="lC5-hj-69J"/>
+                                        <constraint firstItem="dhs-Lv-VJX" firstAttribute="centerX" secondItem="GAv-hT-D3z" secondAttribute="centerX" id="mTN-dg-UJH"/>
+                                        <constraint firstItem="Sjx-kV-Vhw" firstAttribute="top" secondItem="dhs-Lv-VJX" secondAttribute="bottom" constant="8" id="oVe-UW-c56"/>
                                     </constraints>
                                 </view>
                                 <blurEffect style="dark"/>
@@ -103,6 +127,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="labelCountUuid" destination="Sjx-kV-Vhw" id="3af-gX-x26"/>
                         <outlet property="labelStatus" destination="xUw-OU-nnE" id="8lo-5B-Rm4"/>
                     </connections>
                 </viewController>
