@@ -32,20 +32,13 @@
     NSLog(@"get error : %ld", (long)errorCode);
 }
 
-- (void)rtcEngine:(AgoraRtcEngineKit *)engine didJoinChannel:(NSString *)channel withUid:(NSUInteger)uid elapsed:(NSInteger)elapsed {
-    NSLog(@"Joined channel : %@", channel);
-    self.labelStatus.text = @"joined lost";
+- (void)rtcEngine:(AgoraRtcEngineKit *)engine didJoinedOfUid:(NSUInteger)uid elapsed:(NSInteger)elapsed {
     [self.uuids addObject:@(uid)];
+    self.labelCountUuid.text = [NSString stringWithFormat:@"%ld", self.uuids.count];
 }
-
-- (void)rtcEngine:(AgoraRtcEngineKit *)engine reportRtcStats:(AgoraRtcStats*)stats {
-    self.labelCountUuid.text = [NSString stringWithFormat:@"%lu", (unsigned long)stats.users];
-}
-
-
 - (void)rtcEngine:(AgoraRtcEngineKit *)engine didOfflineOfUid:(NSUInteger)uid reason:(AgoraRtcUserOfflineReason)reason {
     [self.uuids removeObject:@(uid)];
-    self.labelCountUuid.text = [NSString stringWithFormat:@"%lu", (unsigned long)self.uuids.count];
+    self.labelCountUuid.text = [NSString stringWithFormat:@"%ld", self.uuids.count];
 }
 
 - (void)rtcEngineConnectionDidLost:(AgoraRtcEngineKit *)engine {
@@ -58,10 +51,10 @@
     [self.agoraKit disableVideo];
     [self.agoraKit setEnableSpeakerphone:true];
     
-    [self.agoraKit joinChannelByKey:nil channelName:self.channel info:nil uid:2
+    [self.agoraKit joinChannelByKey:nil channelName:self.channel info:nil uid:0
                         joinSuccess:^(NSString *channel, NSUInteger uid, NSInteger elapsed) {
                             [self.uuids addObject:@(uid)];
-                            self.labelStatus.text = @"join success";
+                            self.labelStatus.text = [NSString stringWithFormat:@"join channel success: [%@], %ld %ld", channel, uid, (long)elapsed];
                             NSLog(@"joined channel : %@ / %lu / %ld", channel, (unsigned long)uid, (long)elapsed);
                         }];
 }
@@ -74,7 +67,7 @@
     [super viewDidLoad];
     
     self.uuids = [NSMutableSet new];
-    self.channel = @"400";
+    self.channel = @"401";
     self.venderKey = @"92ba4a35a6834810ba022f6bd76dc589";
 }
 
